@@ -61,13 +61,13 @@ const followersArray = [];
 
 const cards = document.querySelector('.cards');
 
-axios.get('https://api.github.com/users/NotYourSyn')
-  .then(res => {
-    console.log(res);
-    cards.append(UserCard(res));
-  }).catch(err => {
-      console.log('there was an error', err);
-    })
+// axios.get('https://api.github.com/users/NotYourSyn')
+//   .then(res => {
+//     console.log(res);
+//     cards.append(UserCard(res));
+//   }).catch(err => {
+//       console.log('there was an error', err);
+//     })
 
 function UserCard({data}){
   const card = document.createElement('div');
@@ -108,3 +108,4 @@ function UserCard({data}){
   return card;
 
 }
+
