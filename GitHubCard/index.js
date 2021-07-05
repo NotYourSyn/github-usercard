@@ -58,3 +58,54 @@ const followersArray = [];
     luishrd
     bigknell
 */
+
+const cards = document.querySelector('.cards');
+
+// axios.get('https://api.github.com/users/NotYourSyn')
+//   .then(res => {
+//     console.log(res);
+//     cards.append(UserCard(res));
+//   }).catch(err => {
+//       console.log('there was an error', err);
+//     })
+
+function UserCard({data}){
+  const card = document.createElement('div');
+  const image = document.createElement('img');
+  const cardInfo = document.createElement('div');
+  const name = document.createElement('h3');
+  const userName = document.createElement('p');
+  const location = document.createElement('p');
+  const profile = document.createElement('p');
+  const followers = document.createElement('p');
+  const following = document.createElement('p');
+  const bio = document.createElement('p');
+
+  card.classList.add('card');
+  cardInfo.classList.add('card-info');
+  name.classList.add('name');
+  userName.classList.add('username');
+
+  image.src = data.avatar_url;
+  name.textContent = 'Name: ' + data.login;
+  userName.textContent = 'User Name: ' + data.login
+  location.textContent = 'Location: ' + data.location
+  profile.textContent = 'Profile: ' + data.html_url
+  followers.textContent = 'Followers: ' + data.followers;
+  following.textContent = 'Following: ' + data.following;
+  bio.textContent = 'Bio: ' + data.bio;
+
+  card.appendChild(image);
+  card.appendChild(cardInfo);
+  cardInfo.appendChild(name);
+  cardInfo.appendChild(userName);
+  cardInfo.appendChild(location);
+  cardInfo.appendChild(profile);
+  cardInfo.appendChild(followers);
+  cardInfo.appendChild(following);
+  cardInfo.appendChild(bio);
+
+  return card;
+
+}
+
